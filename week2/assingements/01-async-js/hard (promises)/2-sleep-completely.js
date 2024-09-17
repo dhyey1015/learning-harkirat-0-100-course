@@ -7,7 +7,9 @@
 function sleep(milliseconds) {
     return new Promise(function(resolve){
         //  TODO write something that blocks the function
-        resolve();
+        setTimeout(function(){
+            resolve();
+        },milliseconds) 
     })
 }
 
