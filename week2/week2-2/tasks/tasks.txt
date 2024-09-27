@@ -1,0 +1,3 @@
+create a simple http server in c/cpp form scratch
+create  a todo application where you store data in file
+create a rust/golang/java http server
