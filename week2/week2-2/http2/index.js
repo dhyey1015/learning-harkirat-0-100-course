@@ -30,6 +30,12 @@ app.post('/get-body-form-user', function(req, res){
     res.send("accessing the body of user request")
 })
 
+app.post('/get-message-form-url', function(req, res){
+    const message = req.message["mes"]
+    console.log(message)
+    res.send("taking message form url")
+})
+
 app.listen(port, function(){
     console.log(`Listening to the port ${port}`)
 })

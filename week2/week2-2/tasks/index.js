@@ -24,7 +24,6 @@ app.get('/get-todo', function(req, res){
 
 app.post('/add-todos-to-list', function(req, res){
     const todos = getTodos()
-
 })
 
 app.listen(port, function(){
