@@ -30,6 +30,11 @@ app.get('/health-checkup', function(req, res){
     // });
 });
 
+app.use((err, req, res, next) =>{
+    res.json({
+        msg: "something is wrong with our backend"
+    })
+})
 app.listen(port, function(){
     console.log(`Listening to port ${port}`)
 })
