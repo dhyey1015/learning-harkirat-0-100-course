@@ -27,6 +27,7 @@ app.post("/health-checkup", function(req, res, next){
             msg: "Input is Invalid"
         })
     }
+    
     else{
         res.send({
             response
