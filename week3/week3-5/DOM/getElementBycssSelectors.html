@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>querySelectorAll</title>
+    </head>
+    <body>
+        <h1>querySelectorAll</h1>
+        <div>Div 1</div>
+        <p> paragraph 1</p>
+        <div>div 2</div>
+        <p> paragraph 2</p>
+        <div>div 3</div>
+        <div id ="Mydiv">
+            <h2 class="example">a heading</h2>
+            <p class="example">a paragraph</p>
+            <p class="example">a paragraph</p>
+        </div>
+        <p id="demo"></p>
+        <div id="Mydiv1">
+            <div>
+                <h1>heading 1</h1>
+                <p> paragraph 1</p>
+            </div>
+            <div>
+                <h1>heading 2</h1>
+                <p> paragraph 2</p>
+            </div>
+            <div>
+                <h1>heading 3</h1>
+                <p> paragraph 3</p>
+            </div>
+            <div>
+                <h1>heading 4</h1>
+                <p> paragraph 4</p>
+            </div>
+        </div>
+        
+
+        <script>
+            var paras = document.querySelectorAll("p")
+            paras.forEach(function(paragraph) {
+                paragraph.style.backgroundColor = 'red'
+            })
+            
+            const element = document.getElementById("Mydiv")
+            const list = element.querySelectorAll(".example")
+            document.getElementById('demo').innerHTML = list.length
+
+            const element2 = document.getElementById("Mydiv1")
+            const list2 = element2.querySelectorAll("div > p")
+            for(let i = 0; i < list2.length; i++){
+                list2[i].style.backgroundColor = "green"
+            }
+        </script>
+    </body>
+</html>
