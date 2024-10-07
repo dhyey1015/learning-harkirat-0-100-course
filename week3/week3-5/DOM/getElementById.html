@@ -1,0 +1,16 @@
+
+<!--all most same for getElementByTagName-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>getElementById</title>
+    </head>
+    <body>
+        <p class="intro">hello i am using getElementById to add content</p>
+        <p id = "demo"></p>
+        <script>
+            const x = document.getElementsByClassName("intro")
+            document.getElementById("demo").innerHTML = "this paragraph is added by using class=\"intro\": " + x[0].innerHTML;
+        </script>
+    </body>
+</html>

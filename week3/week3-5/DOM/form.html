@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>learning about Document object</title>
+    </head>
+    <body>
+        <form action="#" id ="LoginForm">
+            First name: <input type="text" name="fname" value="Donald"><br>
+            Last name: <input type="text" name="lname" value="Duck"><br>
+            <input type="submit" value="Submit">
+        </form>
+        <p>Click the "Try it" button to display the number of elements in form.</p>
+        <button onclick="myFunction()">Try it</button>
+        <p id="displayspace"></p>
+
+        <script>
+            function myFunction(){
+                let x = document.getElementById("LoginForm").elements.length;
+                let y = document.getElementById("LoginForm").elements[0].value;
+                let z = document.getElementById("LoginForm").elements[1].value;
+                document.getElementById("displayspace").innerHTML = "Found " + x +" elements in the form." + "first name entered is: " + y  + " last name entered is: " + z;
+               
+
+                // const paragraph = document.createElement("p")
+                // paragraph.innerText = "This is a paragraph created via DOM";
+                // document.body.appendChild(paragraph);
+            }
+        </script>
+    </body>
+</html>
