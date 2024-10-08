@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>onclick</title>
+    </head>
+    <body>
+        <h1>javascript html events</h1>
+        <h2>the onclick attribute</h2>
+        <p id ="p1">
+            this is the text
+            this is the text
+            this is the text
+            this is the text
+        </p>
+        <input type="button" value="hide text" onclick="document.getElementById('p1').style.visibility ='hidden'">
+        <input type="button" value="show text" onclick="document.getElementById('p1').style.visibility ='visible'">
+
+        <h2 onclick="changeText(this)">click on this text!</h2>
+        <script>
+            function changeText(id){
+                id.innerHTML = "Ooops!"
+            }
+        </script>
+    </body>
+</html>
