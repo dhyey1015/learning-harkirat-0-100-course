@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>onclick</title>
+    </head>
+    <body>
+        <h1>javascript html events</h1>
+        <h2>the oninput attribute</h2>
+        
+        <input type="text" id="fname" oninput="upperCase()">
+        <p>when you write in input the it will get capital</p>
+
+        <h2 onclick="changeText(this)">click on this text!</h2>
+        <script>
+            function upperCase(){
+               const x = document.getElementById("fname")
+               x.value = x.value.toUpperCase()
+            }
+        </script>
+    </body>
+</html>
