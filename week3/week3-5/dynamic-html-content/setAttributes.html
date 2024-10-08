@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>javascript DOM example</title>
+    </head>
+    <body>
+        <input id="myInput" value="ok">
+        <p>click to change the input field to an input button</p>
+        <button onclick="myFunction()">Change</button>
+        <script>
+            function myFunction(){
+                document.getElementById("myInput").setAttribute("type", "button")
+            }
+        </script>
+    </body>
+</html>
