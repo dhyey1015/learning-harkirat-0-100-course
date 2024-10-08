@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>javascript DOM example</title>
+    </head>
+    <body>
+        <h1>the document object</h1>
+        <h2>replaceElement() mehtod</h2>
+        <ul id="myList">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+
+        <p>click "replace" to replace the second item in the list</p>
+        <button onclick="myFunction()">remove</button>
+        <p> this example replace the text node "Tea" with a text node juice.</p>
+        <script>
+            function myFunction(){
+                const element = document.getElementById("myList").children[1]
+
+                const newNode = document.createTextNode("Juice")
+
+                element.replaceChild(newNode, element.childNodes[0])
+            }
+        </script>
+    </body>
+</html>
