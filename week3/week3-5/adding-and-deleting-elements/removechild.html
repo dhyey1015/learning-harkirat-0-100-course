@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>javascript DOM example</title>
+    </head>
+    <body>
+        <h1>the document object</h1>
+        <h2>removechild element Method</h2>
+
+        
+        <div id="myDiv">
+            <p id="p1">this is paragraph</p>
+            <p id="p2">this is another paragraph</p>
+        </div>
+
+        <script>
+           const parent = document.getElementById("myDiv")
+           const child = document.getElementById("p1")
+           parent.removeChild(child)
+        </script>
+    </body>
+</html>
