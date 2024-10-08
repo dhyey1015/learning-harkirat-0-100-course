@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>onclick</title>
+    </head>
+    <body>
+        <div onmouseover="mOver(this)" onmouseout="mOut(this)">mouse over me</div>
+        <div onmousedown="mDown(this)" onmouseup="mUp(this)">mouse over me</div>
+        <script>
+            function mOver(obj){
+                obj.innerHTML = "Release me"
+            }
+            function mOut(obj){
+                obj.innerHTML = "mouse over me"
+            }
+            function mDown(obj){
+                obj.innerHTML = "Release me"
+            }
+            function mUp(obj){
+                obj.innerHTML = "mouse over me"
+            }
+        </script>
+    </body>
+</html>
