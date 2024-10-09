@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input oninput="debouncePopulateDiv()" id="num1" type="text" placeholder="first number"><br><br>
+        <input oninput="debouncePopulateDiv()" id="num2" type="text" placeholder="second number"><br><br>
+        <div id="finalSum"></div>
+    </body>
+    <script>
+        var timeout;
+        function debouncePopulateDiv(){
+            
+            // to clear the timeout and start it again if debouncePopulateDiv is called second time
+            clearTimeout(timeout)
+
+            //delay to call populateDiv function until its 100 milliseconds
+            // and i'have been called at least once
+            timeout = setTimeout(function () {
+                populateDiv()
+            }, 1000);
+
+        }
+
+        function populateDiv(){
+
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+            const element = document.getElementById("finalSum")
+
+            fetch(`http://localhost:3000/sum?a=${num1}&b=${num2}`)
+                .then(function(response){
+                    response.text()
+                        .then(function(sum){
+                            console.log(sum)
+                            element.innerHTML = `the sum is: ${sum}`;
+                        });
+                })
+                
+        }
+    </script>
+</html>

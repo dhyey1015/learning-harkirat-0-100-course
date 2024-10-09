@@ -16,7 +16,11 @@
             const sum = await response.text();
             element.innerHTML = `the sum is: ${sum}`;
         }
-        async function populateDiv1(){
+        function populateDiv1(){
+            const num1 = document.getElementById("num1").value;
+            const num2 = document.getElementById("num2").value;
+            const element = document.getElementById("finalSum");
+
             fetch(`http://localhost:3000/sum?a=${num1}&b=${num2}`)
                 .then(function(response){
                     response.text()
