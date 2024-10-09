@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>getElementById</title>
+    </head>
+    <body>
+        <div id="myDiv1">
+            <h1>Bubbling</h1>
+            <p id="myp1"> click me</p>
+        </div><br>
+        <div id="myDiv2">
+            <h1>Bubbling</h1>
+            <p id="myp2"> click me</p>
+        </div><br>
+        <script>
+           document.getElementById("myp1").addEventListener('click', function(){
+                alert("you clicked the p1 element!")
+           }, false)
+           document.getElementById("myDiv1").addEventListener('click', function(){
+                alert("you clicked the div1 element!")
+           }, false)
+           document.getElementById("myp2").addEventListener('click', function(){
+                alert("you clicked the p2 element!")
+           }, true)
+           document.getElementById("myDiv2").addEventListener('click', function(){
+                alert("you clicked the div2 element!")
+           }, true)
+        </script>
+    </body>
+</html>
