@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <input id="principal" type="text" placeholder="principal"><br><br>
+        <input id="rate" type="text" placeholder="rate"><br><br>
+        <input id="time" type="text" placeholder="time"><br><br>
+        <button onclick="calculateInterest()">Calculate interest</button><br><br>
+        <div id="calculate"></div>
+    </body>
+    <script>
+        async function  calculateInterest(){
+            const principal = document.getElementById("principal").value;
+            const rate = document.getElementById("rate").value;
+            const time = document.getElementById("time").value;
+
+            const response = await fetch(`http://localhost:3000/interest?principal=${principal}&rate=${rate}&time=${time}`);
+            const data = await response.json();
+
+            document.getElementById("calculate").innerHTML = `<b>total:</b> ${data.total} <b>interest:</b> ${data.interest}`
+            
+        }
+    </script>
+</html>
