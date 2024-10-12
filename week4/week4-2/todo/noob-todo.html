@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>todo</title>
+    </head>
+    <body>
+        <div>
+            <input id="title" type="text" placeholder="title"><br>
+            <input id="discription" type="text" placeholder="discription"><br>
+            <button onclick="addTodo()">Add todo</button>
+        </div>
+        <div id="container"></div>
+    </body>
+    <script>
+
+        function addTodo(){
+            const title = document.getElementById("title").value;
+            const discription = document.getElementById('discription').value;
+
+            const parentDiv = document.createElement(div);
+            document.getElementById('container').append(parentDiv)
+
+            const childDiv1 = document.createElement('div'); //<div></div>
+            childDiv1.innerHTML = title;//<div>${title}</div>
+            document.getElementById("container").appendChild(childDiv1);
+
+            const childDiv2 = document.createElement('div');
+            childDiv2.innerHTML = discription; 
+            document.getElementById("container").appendChild(childDiv2);
+            
+            const button = document.createElement('button');
+            button.innerHTML = "Mark as read"
+            document.getElementById("container").appendChild(button);
+            //     document.getElementById('container').innerHTML = orginalhtml + `<div>
+            //     <div>${title}</div>
+            //     <div>${discription}</div>
+            //     <button>Mark as read</button>
+            // </div>
+            // `
+        }
+    </script>
+</html>
