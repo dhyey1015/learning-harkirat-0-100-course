@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>todo</title>
+    </head>
+    <body>
+        <div>
+            <input id="title" type="text" placeholder="title"><br>
+            <input id="discription" type="text" placeholder="discription"><br>
+            <button onclick="addTodo()">Add todo</button>
+        </div>
+        <div id="container"></div>
+    </body>
+    <script>
+        let globalid = 0;
+        function createChild(title, discription, id){
+            const child = document.createElement("div");
+
+            const grandchild1 = document.createElement("div");
+            grandchild1.innerHTML = title;
+            
+            const grandchild2 = document.createElement("div");
+            grandchild2.innerHTML = discription;
+
+            const grandchild3 = document.createElement('button');
+            grandchild3.setAttribute("onclick", `markAsDone(${id})`)
+            grandchild3.innerHTML = "Mark as done"
+
+            child.appendChild(grandchild1)
+            child.appendChild(grandchild2)
+            child.appendChild(grandchild3)
+            child.setAttribute("id", id)
+            return child
+        }
+        function updateDomAccToState(state){
+            const parent = document.getElementById('container')
+            parent.innerHTML = "";
+            for (let i = 0; i < state.length; i++){
+                const child = createChild(state[i].title, state[i].discription, state[i].id);
+                parent.appendChild(child)
+            }
+        }
+        updateDomAccToState([
+            {
+                title: "go to gym",
+                discription : "go to gym 7-9",
+                id : 1
+            }
+        ])
+
+        //this is done in real world
+        // window.setInterval(async function(){
+        //     const res = await fetch("your_api")
+        //     const data = res.json()
+        //     updateDomAccToState(data)
+        // }, 5000)
+    </script>
+</html>
