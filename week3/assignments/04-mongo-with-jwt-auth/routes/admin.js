@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken")
 const adminMiddleware = require("../middleware/admin");
 const router = Router();
 const { Admin, Course } = require("../db")
+const {JWT_SECRET} = require("../config")
 
 // Admin Routes
 router.post('/signup', async (req, res) => {
@@ -21,21 +22,29 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/signin', async (req, res) => {
-    // Implement admin signup logic
-    // const username = req.headers.username
-    // const password = req.headers.password
-    // // check is user alr
-    // Admin.findOne({
-    //     username: username,
-    // })
-    // .then(function(value){
-    //     if(value){
-    //         const token =  jwt.sign(value, "dhyey")
-    //         res.json({
-    //             token: token
-    //         })
-    //     }
-    // })
+    const username = req.headers.username
+    const password = req.headers.password
+    console.log(JWT_SECRET)
+
+    const user = await Admin.findOne({
+        username: username,
+        password: password
+    })
+    if (user){
+        const token = jwt.sign({
+            username
+        }, JWT_SECRET)
+    
+        res.json({
+            token: token
+        })
+    }
+    else{
+        res.json({
+            message: "your are not registered"
+        })
+    }
+    
 });
 
 router.post('/courses', adminMiddleware, async (req, res) => {
