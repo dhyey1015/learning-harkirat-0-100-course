@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            dom-way
+        </title>
+    </head>
+    <body>
+        <h1>noob way to create count using DOM</h1>
+        <button onclick="onButtonPress()" id = "btn">Counter 0</button>
+        <script>
+            function onButtonPress(){
+                const currentValue = document.getElementById("btn").innerHTML;
+                console.log(currentValue.split(" ")[1]);
+                const currentCounter = currentValue.split(" ")[1];
+                const newCounter = parseInt(currentCounter) + 1;
+                document.getElementById("btn").innerHTML = "Counter " + newCounter
+            }
+        </script>
+    </body>
+</html>
