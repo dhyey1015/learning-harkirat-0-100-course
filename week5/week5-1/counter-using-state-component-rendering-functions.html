@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Counter
+        </title>
+    </head>
+    <body>
+        <div id = "buttonParent"></div>
+        <script>
+            // current state of the website
+            let state = {
+                count: 0
+            }
+
+            //onclick of the button state gets updated
+            //at high level this is the backend which do some change when button is clicked 
+            //changes the state
+            function onButtonPress(){
+                state.count++
+                buttonComponentRender()
+            }
+            
+            // re-renders the changes done by the component
+            //at high level this will re-render the things changed in component  
+            function buttonComponentRender(){
+                document.getElementById("buttonParent").innerHTML = "";
+                const component = buttonComponent(state.count)
+                document.getElementById("buttonParent").appendChild(component)
+            }
+
+            //creates a button in DOM and changes its value (tells what changes to be done to component)  (developer work)
+            //at high level it make tells the react which component is changed and where you have to render it 
+            // make html according to the changed state
+            function buttonComponent(count){
+                const button = document.createElement("button");
+                button.innerHTML = `Counter ${count}`;
+                button.setAttribute('onclick', 'onButtonPress()');
+                return button
+            }
+
+            buttonComponentRender()
+            
+        </script>
+    </body>
+</html>
