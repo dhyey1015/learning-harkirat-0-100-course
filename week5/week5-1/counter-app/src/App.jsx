@@ -7,7 +7,8 @@ function App() {
   const [count, setCount] = useState(0)
 
   function onClickHandler(){
-    const x= setCount(count + 1)
+    setCount(count + 1)
+    // const x= setCount(count + 1)
     // console.log(x); will print undefined because it does not return any thing 
   }
   return (
