@@ -5,7 +5,21 @@
     output == [2, 4, 6, 8, 10]
 */
 
-const arr = [1, 2, 3, 4, 5]
+// const arr = [1, 2, 3, 4, 5]
+const arr = [
+    {
+        title: "hello",
+        description: "noob"
+    },
+    {
+        title: "hello",
+        description: "noob"
+    },
+    {
+        title: "hello",
+        description: "noob"
+    }
+]
 
 // // normal solution
 // const newArr = []
@@ -21,7 +35,7 @@ const arr = [1, 2, 3, 4, 5]
 //map function solution
 
 function transform(i){
-    return i * 2
+    return i
 }
 //map function syntax take one intial input and take one function as input
 const ans = arr.map(transform) 
