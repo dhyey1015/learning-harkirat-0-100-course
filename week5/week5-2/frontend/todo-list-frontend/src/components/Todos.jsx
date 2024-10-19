@@ -1,28 +1,26 @@
 
-export function Todos({todos}){
+export function Todos({todos, setTodo}){
 
-    console.log(setTodos)
     async function markAsComplete(todoId){
-    //    const response = await fetch("http://localhost:3000/completed", {
-    //         method: "PUT",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             id: todoId,
-    //         })
-    //     })
+        const response = await fetch("http://localhost:3000/completed", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ 
+                id: todoId 
+            }),
+        });
 
-    //     if(response){
-    //         setTodos(function(resTodos){
-    //             const res = resTodos.map(function(todo){
-    //                 todo._id == todoId ? {...todo, isComplete: true} : todo
-    //             })
-
-    //             return res
-    //         })
-    //     }   
+        if(response.ok) {
+            setTodo(function(Todos){
+                return Todos.map(function(todo){
+                    return todo._id === todoId ? { ...todo, isComplete: true } : todo;
+                });
+            });
+        }
     }
+   
     return(
         <div>
             {todos.map(function(todo){
@@ -30,7 +28,11 @@ export function Todos({todos}){
                     <div>
                         <h1>{todo.title}</h1>
                         <h2>{todo.description}</h2>
-                        <button onClick={markAsComplete}>{todo.isComplete === true ? "completed" : "Mark as Complete"}</button>
+                        <button onClick={function(){
+                            markAsComplete(todo._id)
+                        }}
+                        disabled={todo.isComplete}>
+                            {todo.isComplete === true ? "completed" : "Mark as Complete"}</button>
                     </div>
                 )
             })}

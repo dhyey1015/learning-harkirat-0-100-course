@@ -9,11 +9,11 @@ import { Todos } from './components/Todos'
 function App() {
     const [todos, setTodos] = useState([])
 
-    // fetch("http://localhost:3000/get-todos")
-    //   .then(async function(response){
-    //     const json = await response.json()
-    //     setTodos(json.todos)
-    //   })
+      fetch("http://localhost:3000/get-todos")
+        .then(async function(response){
+          const json = await response.json()
+          setTodos(json.todos)
+        })
       
   return (
     <div>
@@ -21,7 +21,7 @@ function App() {
       <CreateTodo />
 
       {/* to render todo */}
-      <Todos todos= {todos} />
+      <Todos todos= {todos} setTodo={setTodos} />
     </div>
   )
 }
