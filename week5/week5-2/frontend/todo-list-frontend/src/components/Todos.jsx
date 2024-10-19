@@ -21,10 +21,8 @@ export function Todos({todos}){
 
     //             return res
     //         })
-    //     }
-        
+    //     }   
     }
-
     return(
         <div>
             {todos.map(function(todo){
