@@ -1,6 +1,6 @@
 // module imports
 import express from "express"
-
+import cors from "cors"
 //file imports
 import { createTodo, updateTodo } from "./types.js";
 // import { todos }  from "./db.js"
@@ -8,6 +8,7 @@ import todos from './db.js'
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 
 //routes
@@ -23,14 +24,12 @@ app.post('/add-todo', async function(req, res){
         })
         return;
     }
-
     //put it in mongodb 
     await todos.create({
         title: createPayLoad.title,
         description: createPayLoad.description,
         isComplete: false
     })
-    
     //respose that todo got created success fully 
     res.json({
         message: "The new todo is created"
@@ -40,7 +39,7 @@ app.post('/add-todo', async function(req, res){
 app.get('/get-todos', async function(req, res){
     const response = await todos.find({})
     res.json({
-        Your_todos: response
+        todos: response
     })
 })
 
@@ -62,6 +61,7 @@ app.put("/completed", async function(req, res){
             isComplete : true
         }
     )
+
     res.json({
         message: "Todo marked is completed"
     })
