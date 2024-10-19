@@ -1,23 +1,16 @@
 // module imports
-const express = require("express");
-// const mongoose = require("mongoose");
+import express from "express"
 
-
-//imports
-import { createTodo, updateTodo } from "./types";
-const todo = require("./db")
-
+//file imports
+import { createTodo, updateTodo } from "./types.js";
+// import { todos }  from "./db.js"
+import todos from './db.js'
 
 const app = express();
 app.use(express.json());
 
 
-// // const { Todolist } = require("")
-
-
-
-
-
+//routes
 app.post('/add-todo', async function(req, res){
 
     const createPayLoad = req.body;
@@ -32,7 +25,7 @@ app.post('/add-todo', async function(req, res){
     }
 
     //put it in mongodb 
-    await todo.create({
+    await todos.create({
         title: createPayLoad.title,
         description: createPayLoad.description,
         isComplete: false
@@ -45,7 +38,7 @@ app.post('/add-todo', async function(req, res){
 })
 
 app.get('/get-todos', async function(req, res){
-    const response = await todo.find({})
+    const response = await todos.find({})
     res.json({
         Your_todos: response
     })
@@ -61,8 +54,7 @@ app.put("/completed", async function(req, res){
         })
         return;
     }
-
-    await todo.updateOne(
+    await todos.updateOne(
         {
             _id : req.body.id
         },
@@ -70,8 +62,9 @@ app.put("/completed", async function(req, res){
             isComplete : true
         }
     )
-
     res.json({
         message: "Todo marked is completed"
     })
 })
+
+app.listen(3000)
