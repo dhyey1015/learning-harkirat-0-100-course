@@ -8,11 +8,14 @@ function App() {
   const [todos, setTodos] = useState([])
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos") //https://jsonplaceholder.typicode.com/todos 
+    setTimeout(function() {
+      fetch("https://jsonplaceholder.typicode.com/todos") //https://jsonplaceholder.typicode.com/todos 
       .then(async (res) => {
         const data = await res.json()
         setTodos(data)
       })
+    }, 10000);
+    
   },[])
 
   return (
