@@ -18,7 +18,7 @@ export const Assignment3 = () => {
             total += items[i].value;
         }
         return total;
-    })
+    }) 
     // Your code ends here
     return (
         <div>
