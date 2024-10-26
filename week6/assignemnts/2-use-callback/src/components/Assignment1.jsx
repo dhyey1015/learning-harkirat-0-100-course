@@ -7,14 +7,18 @@ export function Assignment1() {
 
     // Your code starts here
     const handleIncrement = useCallback(function(){
-        setCount(count => count + 1)
+        setCount(function(curretCount){
+            return curretCount + 1
+        })
 
-    },[count]);
+    },[]);
 
     const handleDecrement = useCallback(function(){
-        setCount(count => count - 1)
+        setCount(function(curretCount){
+            return curretCount - 1
+        })
 
-    },[count]);
+    },[]);
     // Your code ends here
 
     return (
