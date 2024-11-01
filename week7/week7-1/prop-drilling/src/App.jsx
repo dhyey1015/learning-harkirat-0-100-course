@@ -11,18 +11,17 @@ function App() {
   )
 }
 
-function Count({ setCount }){
+function Count({ count, setCount }){
 
   return(
     <div style={{ fontSize:"40px"}}>
-      <CountRenderer />
-      <Buttons setCount={setCount} />
+      <CountRenderer count={count} />
+      <Buttons count={count} setCount={setCount} />
     </div>
   )
 }
 
 function CountRenderer({count}){
-  const count = 1;
   return (
     <div>
       {count}
@@ -31,7 +30,7 @@ function CountRenderer({count}){
 }
 
 function Buttons({count, setCount}){
-  const count = 1;
+
   return(
     <div>
       <button style={{ fontSize:"40px"}} onClick={function(){
