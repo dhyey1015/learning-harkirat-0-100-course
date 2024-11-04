@@ -6,7 +6,7 @@ export function RevenueCard({
 }){
     return(
         <div className="bg-white rounded-lg shadow-md p-4">
-            <div className="flex text-gray-600 flex justify-center flex-col pb-5">
+            <div className="flex justify-center flex-col  text-gray-600  pb-5">
                 <div className="flex">
                     <div className="text-base">
                         {title}
