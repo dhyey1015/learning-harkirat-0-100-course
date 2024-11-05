@@ -1,5 +1,8 @@
-export function Balance({value}){
+import axios from "axios"
+import { useEffect, useState } from "react"
 
+export function Balance({value}){
+    
     return(
         <div className="flex">
             <div className="font-bold text-lg">
