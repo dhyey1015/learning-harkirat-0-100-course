@@ -10,7 +10,12 @@ function App() {
 
   return (
     <div>
-      <VideoGrid/>
+      <div>
+        <Appbar/>
+      </div>
+      <div>
+        <VideoGrid/>
+      </div>
     </div>
   )
 }
