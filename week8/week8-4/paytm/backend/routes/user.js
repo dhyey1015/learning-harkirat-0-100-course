@@ -125,7 +125,7 @@ router.get('/bulk', async function (req, res){
     const filter = req.query.filter || ""
 
     const users = await User.find({
-        "$or": [
+        $or: [
             {
                 firstName: {
                    "$regex": filter
