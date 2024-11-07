@@ -5,7 +5,7 @@ export function VideoCard(props){
 
     return(
         // className='h-96 w-96 bg-red-500'
-         <div className='p-4'> 
+         <div className='cursor-pointer'> 
             <img className='rounded-2xl' src={photo} alt="image" />
             <div className="grid grid-cols-12 pt-3">
                 <div className="col-span-1">
