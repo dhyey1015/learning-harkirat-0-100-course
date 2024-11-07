@@ -8,6 +8,7 @@ import FetchDataHook from './components/FetchDataHook'
 import IsOnlineHook from './components/IsOnlinehook'
 import { MouseTracerHook } from './components/MousePointerHook'
 import { TimeIntervalHook } from './components/TimeIntervalHook'
+import { DebounceHook } from './components/DebounceHook'
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
       <IsOnlineHook/>
       <MouseTracerHook/>
       <TimeIntervalHook/>
+      <DebounceHook/>
       <FetchDataHook/>
     </div>
   )
