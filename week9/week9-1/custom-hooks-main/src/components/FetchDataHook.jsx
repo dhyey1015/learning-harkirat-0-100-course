@@ -1,6 +1,8 @@
+import { useEffect } from "react"
+import { useState } from "react"
+import axios from "axios"
 
-
-export function FetchDataHook() {
+export default function FetchDataHook() {
   
     const {todos, loading} = useTodos(10)
   
@@ -16,7 +18,7 @@ export function FetchDataHook() {
     )
   }
 
-function useTodos(n){
+export function useTodos(n){
 
     const [todos, setTodos] = useState([])
     const [loading, setLoading] = useState(true)
@@ -35,7 +37,7 @@ function useTodos(n){
         clearInterval(value)
       }
     }, [n])
-    
+
     return {todos, loading}
   }
   
