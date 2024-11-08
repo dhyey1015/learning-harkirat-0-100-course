@@ -1,3 +1,4 @@
+"use strict";
 function isLegal(age) {
     if (age >= 18) {
         return true;
@@ -6,5 +7,5 @@ function isLegal(age) {
         return false;
     }
 }
-var x = isLegal(19);
+const x = isLegal(19);
 console.log(x);
