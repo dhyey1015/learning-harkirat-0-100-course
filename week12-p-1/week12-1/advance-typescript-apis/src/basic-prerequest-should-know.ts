@@ -14,3 +14,4 @@ const sum = sumOfAge({
     name: "dhyey1818",
     age: 19
 })
+console.log(sum)
