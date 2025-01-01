@@ -219,10 +219,10 @@
     "@babel/helper-validator-identifier" "^7.22.5"
     to-fast-properties "^2.0.0"
 
-"@dhyey1015/common@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/@dhyey1015/common/-/common-1.0.1.tgz"
-  integrity sha512-5Iw90F+9JZ9rvsaEfcAjlKjkhnBfpkCrp6sDings21zIkKCB00E/jWVnean1jmFLvrxdWII6hGWGCIzW5IYklw==
+"@dhyey1015/common@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/@dhyey1015/common/-/common-1.0.2.tgz"
+  integrity sha512-Ys3hwuUZ4CERvOFmqTy1DUQWXoul/PfUYlnRE7I8WTpijMiM3aYIcbE4qgdDeVyKPNO+eKB1QPWv3g40TzN4Cg==
   dependencies:
     zod "^3.23.8"
 
