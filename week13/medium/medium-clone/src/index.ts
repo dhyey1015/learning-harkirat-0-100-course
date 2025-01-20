@@ -10,7 +10,7 @@ app.post('/api/v1/user/signin', (c) => {
   return c.text('Hello Hono!')
 })
 
-app.post('/api/v1/blog', (c)=> {
+app.post('/api/v1/blog', (c) =>{
   return c.text('heelo');
 })
 
