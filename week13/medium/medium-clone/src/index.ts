@@ -2,12 +2,12 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-app.get('/api/v1/user/signup', (c) => {
+app.get('np', (c) => {
   return c.text('Hello Hono!')
 })
 
 app.post('/api/v1/user/signin', (c) => {
-  return c.text('Hello Hono!')
+  return c.text('Hello Hon  o!')
 })
 
 app.post('/api/v1/blog', (c) =>{
