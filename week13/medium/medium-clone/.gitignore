@@ -36,3 +36,5 @@ lerna-debug.log*
 #extra's
 
 db-url
+wrangler
+wrangler.toml
