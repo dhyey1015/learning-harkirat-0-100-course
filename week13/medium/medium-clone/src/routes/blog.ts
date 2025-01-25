@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client/extension";
+import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { Hono } from "hono";
 
@@ -45,15 +45,58 @@ blogRouter.post('/new-blog', async (c, next) =>{
     
 });
 
-blogRouter.put('/edit-blog', (c) => {
+blogRouter.put('/edit-blog', async (c) => {
+    const body = await c.req.json();
     const prisma = new PrismaClient({
         datasourceUrl: c.env.DATABASE_URL
-    }).$extends(withAccelerate())
-    return c.text('ehl');
+    }).$extends(withAccelerate());
+    try {
+        const blog = await prisma.blog.update({
+            where:{
+                id: body.id
+            },
+            data:{
+                title: body.title,
+                content: body.content,
+            }
+        });
+        c.status(204);
+        return c.json({
+            message: "your blog updated successfully",
+            "your_updated_blog's_id": blog.id
+        });
+    } catch(e){
+        c.status(404);
+        return c.json({
+            message: "something when wrong",
+            "error": `${e}`
+        })
+    }
 });
    
-blogRouter.get('/:id', (c) => {
-    return c.text('ebdcu');
+blogRouter.get('/get-id-blog', async (c) => {
+    const body = await c.req.json();
+    const prisma = new PrismaClient({
+        datasourceUrl: c.env.DATABASE_URL
+    }).$extends(withAccelerate());
+
+   try{
+    const blog = await prisma.blog.findFirst({
+        where:{
+            id: body.id
+        }
+    });
+    c.status(200)
+    return c.json({
+        blog
+    })
+   } catch (e){
+    c.status(404);
+    return c.json({
+        message: "something when wrong",
+        "error": `${e}`
+    })
+   }
 });
   
 blogRouter.get('/all-blog', (c)=> {
