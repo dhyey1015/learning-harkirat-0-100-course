@@ -81,24 +81,40 @@ blogRouter.get('/get-id-blog', async (c) => {
     }).$extends(withAccelerate());
 
    try{
-    const blog = await prisma.blog.findFirst({
-        where:{
-            id: body.id
-        }
-    });
-    c.status(200)
-    return c.json({
-        blog
-    })
+        const blogs = await prisma.blog.findMany();
+        c.status(200)
+        return c.json({
+            blogs
+        })
    } catch (e){
-    c.status(404);
-    return c.json({
-        message: "something when wrong",
-        "error": `${e}`
-    })
+        c.status(404);
+        return c.json({
+            message: "something when wrong",
+            "error": `${e}`
+        })
    }
 });
-  
-blogRouter.get('/all-blog', (c)=> {
-    return c.text('huduc');
+  //TODO: add pagination
+blogRouter.get('/all-blog', async (c)=> {
+    const body = await c.req.json();
+    const prisma = new PrismaClient({
+        datasourceUrl: c.env.DATABASE_URL
+    }).$extends(withAccelerate());
+    try{
+        const blog = await prisma.blog.findFirst({
+            where:{
+                id: body.id
+            }
+        });
+        c.status(200)
+        return c.json({
+            blog
+        })
+    } catch (e){
+        c.status(404);
+        return c.json({
+            message: "something when wrong",
+            "error": `${e}`
+        })
+    }
 });
