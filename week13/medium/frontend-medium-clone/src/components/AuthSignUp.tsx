@@ -1,5 +1,5 @@
 import { SignUpInput } from "@dhyey1015/medium-clone-common";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { AuthButton, AuthHeader } from "./AuthConstants";
 
 
@@ -9,7 +9,7 @@ export function AuthSignUp(){
         password: "",
         username: ""
     })
-    
+
     return(
         <div className="flex justify-center flex-col h-screen">
             <div className="flex justify-center">

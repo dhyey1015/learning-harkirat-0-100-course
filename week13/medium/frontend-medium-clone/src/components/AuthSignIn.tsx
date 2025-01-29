@@ -1,4 +1,4 @@
-import { SignInInput, SignUpInput } from "@dhyey1015/medium-clone-common";
+import { SignInInput } from "@dhyey1015/medium-clone-common";
 import { useState } from "react";
 import { AuthButton, AuthHeader, LabledInput } from "./AuthConstants";
 
