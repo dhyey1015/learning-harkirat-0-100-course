@@ -4,19 +4,21 @@ import { withAccelerate } from '@prisma/extension-accelerate';
 import { sign } from 'hono/jwt';
 import { userRouter } from './routes/user';
 import { blogRouter } from './routes/blog';
-    
-    
+import { cors } from 'hono/cors'
 
-  const app = new Hono<{
-    Bindings:{
-      DATABASE_URL: string;
-      SECRET_KEY: string;
-    }
-  }>()
 
-  //Routing 
-  app.route("/api/v1/user", userRouter);
-  app.route("/api/v1/blog", blogRouter);
+
+const app = new Hono<{
+  Bindings:{
+    DATABASE_URL: string;
+    SECRET_KEY: string;
+  }
+}>()
+
+app.use('/*', cors());
+//Routing 
+app.route("/api/v1/user", userRouter);
+app.route("/api/v1/blog", blogRouter);
 
 //   app.post('/api/v1/user/signup', async (c) =>  {
 //     const body = await c.req.json();
