@@ -1,14 +1,29 @@
 import { SignUpInput } from "@dhyey1015/medium-clone-common";
 import { ChangeEvent, useState } from "react";
 import { AuthButton, AuthHeader } from "./AuthConstants";
-
+import axios  from "axios"
+import { BACKEND_URL } from "../config";
+import { useNavigate } from "react-router-dom";
 
 export function AuthSignUp(){
+    const navigate = useNavigate();
     const [postInput, setPostInput] = useState<SignUpInput>({
         name: "",
         password: "",
         username: ""
-    })
+    });
+
+    async function userRegister(){
+        try {
+            const response =  await axios.post(`${BACKEND_URL}/api/v1/user/signup`, postInput);
+            const token = response.data['Token'];
+            localStorage.setItem("token", token);
+            navigate('/signin');
+        } catch (e) {
+            alert('something went wrong while signing up')
+        }
+
+    }
 
     return(
         <div className="flex justify-center flex-col h-screen">
@@ -52,7 +67,7 @@ export function AuthSignUp(){
                         />
                         <br />
                     </div>
-                    <AuthButton type ="signup"/>
+                    <AuthButton onClick={userRegister} type ="signup"/>
                 </div>
             </div>  
         </div>

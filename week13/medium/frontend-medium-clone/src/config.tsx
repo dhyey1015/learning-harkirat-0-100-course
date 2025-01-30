@@ -1,0 +1,1 @@
+export const BACKEND_URL = "https://medium-clone.dhyeykakadiya1015.workers.dev"

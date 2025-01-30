@@ -1,6 +1,6 @@
 
 
-export function Blogs(){
+export function SingleBlog(){
     return(
         <div>
             Blog
