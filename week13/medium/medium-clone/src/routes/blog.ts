@@ -145,12 +145,23 @@ blogRouter.get('get-blog/:id', async (c) => {
 });
   //TODO: add pagination
 blogRouter.get('/all-blog', async (c)=> {
-    const body = await c.req.json();
     const prisma = new PrismaClient({
         datasourceUrl: c.env.DATABASE_URL
     }).$extends(withAccelerate());
     try{
-        const blog = await prisma.blog.findMany();
+        const blog = await prisma.blog.findMany({
+            select:{
+                id: true,
+                title: true,
+                content: true,
+                published: true,
+                author: {
+                    select:{
+                        name: true
+                    }
+                }
+            }
+        });
         c.status(200)
         return c.json({
             blog
