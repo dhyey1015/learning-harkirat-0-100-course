@@ -1,15 +1,19 @@
+import { Link } from "react-router-dom";
 
 interface BlogCardInterface {
     authorName: string;
     title: string;
     content: string;
     publishedDate: string;
+    id: number;
 }
 
-export function BlogCard({authorName, title, content, publishedDate} : BlogCardInterface) {
+export function BlogCard({id, authorName, title, content, publishedDate} : BlogCardInterface) {
 
     return(
-        <div className="p-4 border-b border-slate-200">
+        <Link to={`/blog/${id}`}>
+        
+        <div className="p-4 border-b border-slate-200 w-screen max-w-screen-md cursor-pointer">
            
             <div className="flex pb-2 ">
                 <div className="">
@@ -34,7 +38,7 @@ export function BlogCard({authorName, title, content, publishedDate} : BlogCardI
             </div>
             {/* <div className="bg-slate-100 h-0.5 w-full"></div> */}
         </div>
-
+    </Link>
     )
 }
 
