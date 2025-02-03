@@ -17,7 +17,7 @@ export function BlogCard({id, authorName, title, content, publishedDate} : BlogC
            
             <div className="flex pb-2 ">
                 <div className="">
-                    <Avatar name={authorName} />
+                    <AvatarBlogCard name={authorName} />
                 </div>
                 <div className="flex justify-center flex-col font-normal pl-2 text-sm">
                     {authorName} 
@@ -42,7 +42,7 @@ export function BlogCard({id, authorName, title, content, publishedDate} : BlogC
     )
 }
 
-function Avatar({name}: {name: string}){
+export function AvatarBlogCard({name}: {name: string}){
     const newName = name.toUpperCase()
     return(
         <div className="relative inline-flex items-center justify-center w-6 h-6 overflow-hidden 

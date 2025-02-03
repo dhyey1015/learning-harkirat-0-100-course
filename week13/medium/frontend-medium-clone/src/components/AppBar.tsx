@@ -7,14 +7,14 @@ export function AppBar(){
                 Medium
             </div>
             <div className="flex flex-col justify-center h-10 w-10">
-                <Avatar name= "dhyey"/>
+                <AvatarAppBar name= "dhyey"/>
             </div>
         </div>
     )
 }
 
 
-function Avatar({name}: {name: string}){
+export function AvatarAppBar({name}: {name: string}){
     const newName = name.toUpperCase()
     return(
         <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden 

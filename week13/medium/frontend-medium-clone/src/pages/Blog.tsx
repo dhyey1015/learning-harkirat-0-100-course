@@ -21,6 +21,7 @@ export function Blogs(){
                     {blogs.map(blog => {
                         return(
                             <BlogCard 
+                                key={blog.id}
                                 id = {blog.id}
                                 authorName= {blog.author.name} 
                                 title={blog.title} 
