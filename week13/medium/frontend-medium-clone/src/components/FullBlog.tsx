@@ -1,6 +1,6 @@
 import { Blog } from "../hooks/hooks"
 import { AppBar, AvatarAppBar } from "./AppBar"
-import { AvatarBlogCard } from "./BlogCard"
+
 
 export function FullBlog({blog} : {blog: Blog}){
 
@@ -20,7 +20,7 @@ export function FullBlog({blog} : {blog: Blog}){
                             {blog.content}
                         </div>
                     </div>
-                    <div className="col-span-4 pl-20">
+                    <div className="col-span-4 pl-20q">
                         <div className="font-semibold text-xl ">
                             Author
                         </div>
