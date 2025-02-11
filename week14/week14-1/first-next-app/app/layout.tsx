@@ -24,9 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <div className="border-b border-slate-200 flex justify-between px-10 py-4">  
+          <div className="flex flex-col justify-center text-4xl font-bold cursor-pointer">
+            Medium
+          </div> 
+        </div>
         {children}
       </body>
     </html>
