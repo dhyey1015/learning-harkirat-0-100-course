@@ -3,8 +3,7 @@
 import { SomeButton } from "./Button";
 
 export function SignInComponent(){
-
-  
+    
     return (
         <div className="flex justify-center flex-col h-screen">
         <div className="flex justify-center">
@@ -14,7 +13,7 @@ export function SignInComponent(){
             </div>
             <div>
               <label className="block mb-2 text-sm font-bold text-gray-700">Email</label>
-              <input  
+              <input
                   id="email" 
                   placeholder="Email"
                   className="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
