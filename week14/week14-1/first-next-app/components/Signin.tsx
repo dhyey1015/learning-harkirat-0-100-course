@@ -1,6 +1,10 @@
 
 
+import { SomeButton } from "./Button";
+
 export function SignInComponent(){
+
+  
     return (
         <div className="flex justify-center flex-col h-screen">
         <div className="flex justify-center">
@@ -25,12 +29,7 @@ export function SignInComponent(){
               />
             </div>
             <div className="pt-5">
-              <button 
-                  type="button" 
-                  className="py-2.5 px-5 text-sm font-medium text-white bg-black rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 w-full"
-                >
-                Sign In
-              </button>
+              <SomeButton/>
             </div>
           </div>
         </div>
